@@ -1,0 +1,138 @@
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamDay - Contatti & Messaggistica</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .navbar {
+            background: rgba(23, 37, 84, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .dropdown-anim {
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-anim.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navbar -->
+<nav class="navbar fixed w-full py-4 px-4 sm:px-6 flex justify-between items-center z-50">
+        <div class="text-xl sm:text-2xl font-bold text-white">DreamDay</div>
+
+
+        <div class="relative">
+            <button id="dropdown-toggle" class="flex items-center text-white hover:text-blue-300 focus:outline-none">
+                <span class="mr-2">Menu</span>
+                <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+
+            <div id="dropdown-menu" class="absolute right-0 mt-2 w-40 bg-blue-900 text-white rounded-lg shadow-lg hidden flex-col dropdown-anim">
+                <a href="pagina principale finale.html" class="block px-4 py-2 hover:bg-blue-700 rounded-t-lg">Home</a>
+                <a href="catalogo.html" class="block px-4 py-2 hover:bg-blue-700">Barche</a>
+                <a href="messaggistica.html" class="block px-4 py-2 hover:bg-blue-700">Contattaci</a>
+                <a href="pagina principale finale.html#about" class="block px-4 py-2 hover:bg-blue-700 rounded-b-lg">Chi Siamo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-bg relative flex flex-col items-center justify-center h-64 sm:h-72 bg-gradient-to-b from-blue-900 to-blue-700 text-white mt-16">
+        <h1 class="text-3xl sm:text-5xl font-extrabold">Contattaci</h1>
+        <p class="mt-2 sm:mt-4 text-lg sm:text-xl">Siamo a tua disposizione per informazioni e messaggi</p>
+    </section>
+
+    <!-- Sezione messaggistica -->
+    <section class="py-12 px-4 sm:px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <!-- Colonna foto -->
+            <div class="flex justify-center md:justify-end">
+                <img src="giuliano.jpg" alt="Proprietario DreamDay" class="w-64 h-80 object-cover rounded-xl shadow-lg">
+            </div>
+            <!-- Colonna contatti -->
+            <div class="space-y-6">
+                <h2 class="text-3xl font-bold text-blue-900">I nostri contatti</h2>
+                <p class="text-gray-700 text-lg">Puoi contattarci tramite i seguenti canali:</p>
+                
+                <div class="space-y-4">
+                    <a href="https://wa.me/c/393480440790" target="_blank" class="flex items-center p-4 bg-white rounded-xl shadow-md hover:bg-green-50 contact-card transition">
+                        <svg class="w-6 h-6 mr-3 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M16.53 7.47a6.5 6.5 0 11-9.19 9.19l-.44.44-1.71.43.43-1.71.44-.44a6.5 6.5 0 019.19-9.19zm-.53 6.72l-1.44-.43a.5.5 0 00-.59.19l-.66.99a5.01 5.01 0 01-2.27-2.28l.99-.66a.5.5 0 00.19-.59l-.43-1.44a4.5 4.5 0 115.21 5.21z"/>
+                        </svg>
+                        <span class="text-gray-800 font-semibold">WhatsApp</span>
+
+                    <a href="https://www.tiktok.com/@dreamday_napoli1" target="_blank" class="flex items-center p-4 bg-white rounded-xl shadow-md hover:bg-gray-100 contact-card transition">
+                    <svg class="w-6 h-6 mr-3 text-black" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.477 2 2 6.477 2 12c0 4.993 3.657 9.128 8.438 9.877v-6.987h-2.54V12h2.54v-1.833c0-2.507 1.493-3.89 3.777-3.89 1.094 0 2.238.196 2.238.196v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 16.993 22 12c0-5.523-4.477-10-10-10z"/>
+                    </svg>
+                    <span class="text-gray-800 font-semibold">TikTok dreamday_napoli1</span>
+                    </a>
+
+                    <a href="https://www.instagram.com/dreamday_napoli?igsh=cGZtaWRhOXRwdWpu" target="_blank" class="flex items-center p-4 bg-white rounded-xl shadow-md hover:bg-pink-50 contact-card transition">
+                        <svg class="w-6 h-6 mr-3 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm0 2h10c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3zm5 2a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.5a1 1 0 100 2 1 1 0 000-2z"/>
+                        </svg>
+                        <span class="text-gray-800 font-semibold">Instagram-DreamDay Napoli</span>
+                    </a>
+
+                    <a href="mailto:info@dreamday.com" class="flex items-center p-4 bg-white rounded-xl shadow-md hover:bg-yellow-50 contact-card transition">
+                        <svg class="w-6 h-6 mr-3 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12h-4m0 0H8m4 0V8m0 4v4M3 6h18v12H3V6z"/>
+                        </svg>
+                        <span class="text-gray-800 font-semibold">info@dreamday.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-6 px-4 text-center mt-12">
+        <p class="text-base">&copy; 2025 DreamDay. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script>
+        // Dropdown navbar
+        const dropdownToggle = document.getElementById('dropdown-toggle');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const dropdownIcon = dropdownToggle.querySelector('svg');
+
+        dropdownToggle.addEventListener('click', () => {
+            const isHidden = dropdownMenu.classList.contains('hidden');
+            dropdownMenu.classList.toggle('hidden');
+            dropdownIcon.classList.toggle('rotate-180');
+            if (isHidden) setTimeout(() => dropdownMenu.classList.add('show'), 10);
+            else dropdownMenu.classList.remove('show');
+        });
+
+        document.addEventListener('click', e => {
+            if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+                dropdownMenu.classList.remove('show');
+                dropdownIcon.classList.remove('rotate-180');
+            }
+        });
+    </script>
+
+</body>
+</html>

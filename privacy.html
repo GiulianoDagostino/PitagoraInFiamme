@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - DreamDay</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            padding-top: 72px;
+        }
+        .navbar {
+            background: rgba(23, 37, 84, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+        }
+        .dropdown-anim {
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        .dropdown-anim.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .section-divider {
+            height: 6px;
+            background: linear-gradient(to right, #1e3a8a, #3b82f6);
+            border-radius: 9999px;
+            margin: 4rem auto;
+            width: 80%;
+        }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #d1d5db; padding: 8px; text-align: left; }
+        th { background-color: #eff6ff; }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- Navbar -->
+    <nav class="navbar fixed w-full py-4 px-4 sm:px-6 flex justify-between items-center z-50">
+        <div class="text-xl sm:text-2xl font-bold text-white">DreamDay</div>
+        <div class="relative">
+            <button id="dropdown-toggle" class="flex items-center text-white hover:text-blue-300 focus:outline-none">
+                <span class="mr-2">Menu</span>
+                <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            <div id="dropdown-menu" class="absolute right-0 mt-2 w-40 bg-blue-900 text-white rounded-lg shadow-lg hidden flex-col dropdown-anim">
+                <a href="pagina principale finale.html" class="block px-4 py-2 hover:bg-blue-700 rounded-t-lg">Home</a>
+                <a href="catalogo.html" class="block px-4 py-2 hover:bg-blue-700">Barche</a>
+                <a href="messaggistica.html" class="block px-4 py-2 hover:bg-blue-700">Contattaci</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenuto Privacy -->
+    <section class="py-16 px-4 sm:px-6 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold text-blue-900 text-center mb-12">Privacy Policy</h1>
+            <p class="text-center text-gray-600 mb-8">DreamDay - Protezione dei Dati Personali</p>
+            <p class="text-center text-sm text-gray-500 mb-12">Conformità GDPR | Data: 17 Ottobre 2025</p>
+
+            <div class="bg-blue-50 rounded-lg p-8 mb-8 border-l-4 border-blue-500">
+                <h2 class="text-2xl font-bold text-blue-900 mb-4">1. IMPEGNO PRIVACY</h2>
+                <p class="text-gray-700">Proteggiamo i tuoi dati come il timone di uno yacht. <strong>Conformi al GDPR (Reg. UE 2016/679)</strong>.</p>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg p-8 mb-8">
+                <h2 class="text-2xl font-bold text-blue-900 mb-4">2. DATI RACCOLTI</h2>
+                <table class="mb-6">
+                    <thead>
+                        <tr><th>Dati</th><th>Scopo</th><th>Base Legale</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Email</td><td>Registrazione/login</td><td>Consenso</td></tr>
+                        <tr><td>Nome/Cognome</td><td>Contatti venditori</td><td>Esecuzione contratto</td></tr>
+                        <tr><td>Telefono</td><td>Comunicazione</td><td>Consenso</td></tr>
+                        <tr><td>IP Address</td><td>Sicurezza</td><td>Interesse legittimo</td></tr>
+                        <tr><td>Cookie</td><td>Migliorare esperienza</td><td>Consenso</td></tr>
+                    </tbody>
+                </table>
+                <p class="text-red-600 font-bold">NON raccogliamo: Dati sensibili, bancari, posizione GPS.</p>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg p-8 mb-8">
+                <h2 class="text-2xl font-bold text-blue-900 mb-4">3. COME USIAMO I DATI</h2>
+                <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                    <li><strong>Servizio</strong>: Gestire account e messaggi</li>
+                    <li><strong>Marketing</strong>: Newsletter (opt-in obbligatorio)</li>
+                    <li><strong>Sicurezza</strong>: Prevenire frodi</li>
+                    <li><strong>Analisi</strong>: Migliorare il sito</li>
+                </ul>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg p-8 mb-8">
+                <h2 class="text-2xl font-bold text-blue-900 mb-4">4. CONDIVISIONE DATI</h2>
+                <table class="mb-6">
+                    <thead>
+                        <tr><th>Destinatario</th><th>Motivo</th><th>Luogo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Venditori</td><td>Contatto diretto</td><td>UE</td></tr>
+                        <tr><td>Google Analytics</td><td>Statistiche</td><td>USA (Privacy Shield)</td></tr>
+                        <tr><td>Hosting</td><td>Manutenzione</td><td>UE (Italia)</td></tr>
+                    </tbody>
+                </table>
+                <p class="text-red-600 font-bold">NON vendiamo dati a terzi.</p>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg p-8 mb-8">
+                <h2 class="text-2xl font-bold text-blue-900 mb-4">5. DIRITTI GDPR</h2>
+                <table class="mb-6">
+                    <thead>
+                        <tr><th>Diritto</th><th>Come esercitarlo</th><th>Tempo risposta</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Accesso</td><td><a href="mailto:privacy@dreamday.it">privacy@dreamday.it</a></td><td>30 giorni</td></tr>
+                        <tr><td>Cancellazione</td><td>Stessa email</td><td>30 giorni</td></tr>
+                        <tr><td>Opposizione</td><td>Link newsletter</td><td>Immediato</td></tr>
+                        <tr><td>Portabilità</td><td>Form sul sito</td><td>30 giorni</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg p-8 mb-8">
+                <h2 class="text-2xl font-bold text-blue-900 mb-4">6. COOKIE</h2>
+                <table>
+                    <thead>
+                        <tr><th>Tipo</th><th>Esempio</th><th>Scopo</th><th>Durata</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Tecnici</td><td>session_id</td><td>Funzionalità</td><td>Sessione</td></tr>
+                        <tr><td>Analitici</td><td>_ga</td><td>Statistiche</td><td>2 anni</td></tr>
+                        <tr><td>Marketing</td><td>newsletter</td><td>Preferenze</td><td>1 anno</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-blue-50 rounded-lg p-8 mb-8 border-l-4 border-green-500">
+                <h2 class="text-2xl font-bold text-blue-900 mb-4">7. SICUREZZA</h2>
+                <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                    <li><strong>Crittografia</strong>: SSL/TLS 256-bit</li>
+                    <li><strong>Backup</strong>: Encriptati, UE</li>
+                    <li><strong>Accesso</strong>: Autenticazione 2FA disponibile</li>
+                </ul>
+            </div>
+
+            <div class="text-center mb-12">
+                <p class="text-gray-600 mb-4">
+                    Data Protection Officer: <a href="mailto:privacy@dreamday.it" class="text-blue-600 hover:underline">privacy@dreamday.it</a><br>
+                    Autorità: Garante Privacy Italiano
+                </p>
+                <p class="text-sm text-gray-500">Ultimo aggiornamento: 17 Ottobre 2025</p>
+            </div>
+
+            <div class="text-center">
+                <a href="pagina principale finale.html" class="bg-blue-700 hover:bg-blue-800 text-white px-8 py-3 rounded-full text-lg shadow-md transition">Torna alla Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-6 px-4 text-center">
+        <div class="copyright">
+            © <span id="year">2025</span> Daydream <br>
+            Riproduzione, distribuzione e utilizzo dei contenuti <br>
+            sono vietati senza previa autorizzazione.
+            <div class="footer-links mt-4">
+                <a href="privacy-policy.html" class="text-blue-200 hover:text-white">Privacy Policy</a> | 
+                <a href="terms-of-service.html" class="text-blue-200 hover:text-white">Termini di Servizio</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script Menu -->
+    <script>
+        const dropdownToggle = document.getElementById('dropdown-toggle');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const dropdownIcon = dropdownToggle.querySelector('svg');
+        
+        dropdownToggle.addEventListener('click', () => {
+            const isHidden = dropdownMenu.classList.contains('hidden');
+            dropdownMenu.classList.toggle('hidden');
+            dropdownIcon.classList.toggle('rotate-180');
+            if (isHidden) setTimeout(() => dropdownMenu.classList.add('show'), 10);
+            else dropdownMenu.classList.remove('show');
+        });
+
+        document.addEventListener('click', e => {
+            if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+                dropdownMenu.classList.remove('show');
+                dropdownIcon.classList.remove('rotate-180');
+            }
+        });
+    </script>
+</body>
+</html>

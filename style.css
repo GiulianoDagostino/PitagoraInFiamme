@@ -1,0 +1,72 @@
+.contact{
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+     transform: translateX(50px); /* Sposta tutto 20px a destra */
+     margin-top: -10px;
+}
+
+#email {
+     fill: goldenrod;
+    width: 9%;
+}
+
+.contact-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10px;
+}
+
+
+.contact-text p{
+    align-items: center;
+    font-size: 20px;
+}
+
+.contact-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+
+.about-section {
+    padding: 4rem 1rem;
+    background-color: #f3f4f6; /* bg-gray-100 */
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem; /* text-3xl */
+    font-weight: bold;
+    color: #1e3a8a; /* text-blue-900 */
+    margin-bottom: 3rem;
+}
+
+
+
+.about-text {
+    color: #4b5563; /* text-gray-700 */
+    font-size: 1.125rem; /* text-lg */
+    max-width: 768px; /* max-w-3xl */
+    margin: 0 auto;
+    line-height: 1.6;}
+
+
+
+.copyright{
+  width: 100%;
+  text-align: center;
+  padding: 25px 0;
+  font-weight: 600px;
+  margin-top: 20px;
+}
+
+
+.footer-links a{
+  text-decoration: underline;
+  color: red;
+}

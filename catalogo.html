@@ -1,0 +1,229 @@
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamDay - Catalogo Barche</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .navbar {
+            background: rgba(23, 37, 84, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+        }
+
+        .boat-details {
+            display: none;
+        }
+
+        .boat-details.active {
+            display: block;
+        }
+
+        .dropdown-anim {
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-anim.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .sort-select {
+            max-width: 200px;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="navbar fixed w-full py-4 px-4 sm:px-6 flex justify-between items-center z-50">
+        <div class="text-xl sm:text-2xl font-bold text-white">DreamDay</div>
+
+        <div class="relative">
+            <button id="dropdown-toggle" class="flex items-center text-white hover:text-blue-300 focus:outline-none">
+                <span class="mr-2">Menu</span>
+                <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+
+            <div id="dropdown-menu" class="absolute right-0 mt-2 w-40 bg-blue-900 text-white rounded-lg shadow-lg hidden flex-col dropdown-anim">
+                <a href="pagina principale finale.html" class="block px-4 py-2 hover:bg-blue-700 rounded-t-lg">Home</a>
+                <a href="pagina barca.html" class="block px-4 py-2 hover:bg-blue-700">Barche</a>
+                <a href="messaggistica.html" class="block px-4 py-2 hover:bg-blue-700">Contattaci</a>
+                <a href="pagina principale finale.html#about" class="block px-4 py-2 hover:bg-blue-700 rounded-b-lg">Chi Siamo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-bg relative flex flex-col items-center justify-center h-64 sm:h-72 bg-gradient-to-b from-blue-900 to-blue-700 text-white">
+        <h1 class="text-3xl sm:text-5xl font-extrabold">Catalogo Completo Barche</h1>
+        <p class="mt-2 sm:mt-4 text-lg sm:text-xl">Sfoglia tutte le imbarcazioni disponibili</p>
+    </section>
+
+    <!-- Filtri ordinamento -->
+    <section class="py-8 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto flex justify-end items-center">
+            <label class="mr-2 font-semibold text-gray-700">Ordina per:</label>
+            <div class="relative">
+                <button id="sort-toggle" class="flex items-center border border-gray-300 rounded-lg px-3 py-2 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200">
+                    <span id="sort-text" class="mr-2">Predefinito</span>
+                    <svg class="w-4 h-4 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div id="sort-dropdown" class="absolute right-0 mt-2 w-48 bg-white text-gray-800 rounded-lg shadow-lg hidden flex-col dropdown-anim border border-gray-200 overflow-hidden">
+                    <button data-sort="default" class="block px-4 py-2 hover:bg-gray-100 w-full text-left rounded-t-lg focus:outline-none focus:bg-gray-100">Predefinito</button>
+                    <button data-sort="priceAsc" class="block px-4 py-2 hover:bg-gray-100 w-full text-left focus:outline-none focus:bg-gray-100">Prezzo crescente</button>
+                    <button data-sort="priceDesc" class="block px-4 py-2 hover:bg-gray-100 w-full text-left rounded-b-lg focus:outline-none focus:bg-gray-100">Prezzo decrescente</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Griglia catalogo -->
+    <section class="py-8 px-4 sm:px-6">
+        <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            <!-- JS genera le barche -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-6 px-4 text-center mt-12">
+        <p class="text-base">&copy; 2025 DreamDay. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script>
+        // Lista delle barche
+        let boats = [
+            { name: "Yacht Aurora", price: 1200000, img: "anale1.jpg", len: "20m", power: "2x1200hp", people: 8, year: 2023, pageUrl: "pagina barca.html" },
+            { name: "Ocean Pearl", price: 980000, img: "https://source.unsplash.com/random/400x300/?yacht,2", len: "18m", power: "2x1000hp", people: 6, year: 2022, pageUrl: "ocean-pearl.html" },
+            { name: "Blue Horizon", price: 1450000, img: "https://source.unsplash.com/random/400x300/?yacht,3", len: "22m", power: "2x1300hp", people: 10, year: 2024, pageUrl: "blue-horizon.html" },
+            { name: "Sea Dream", price: 870000, img: "https://source.unsplash.com/random/400x300/?boat,4", len: "15m", power: "2x800hp", people: 6, year: 2021, pageUrl: "sea-dream.html" },
+            { name: "Marina Star", price: 1100000, img: "https://source.unsplash.com/random/400x300/?boat,5", len: "19m", power: "2x1100hp", people: 8, year: 2023, pageUrl: "marina-star.html" },
+            { name: "Golden Wave", price: 2300000, img: "https://source.unsplash.com/random/400x300/?boat,6", len: "25m", power: "2x1500hp", people: 12, year: 2024, pageUrl: "golden-wave.html" },
+            { name: "Aqua Spirit", price: 740000, img: "https://source.unsplash.com/random/400x300/?boat,7", len: "14m", power: "2x700hp", people: 5, year: 2021, pageUrl: "aqua-spirit.html" },
+            { name: "Sea Legend", price: 1900000, img: "https://source.unsplash.com/random/400x300/?yacht,8", len: "23m", power: "2x1400hp", people: 9, year: 2024, pageUrl: "sea-legend.html" },
+            { name: "Coral Queen", price: 1050000, img: "https://source.unsplash.com/random/400x300/?yacht,9", len: "18m", power: "2x1000hp", people: 7, year: 2022, pageUrl: "coral-queen.html" },
+            { name: "Oceanic Breeze", price: 1670000, img: "https://source.unsplash.com/random/400x300/?boat,10", len: "21m", power: "2x1200hp", people: 9, year: 2023, pageUrl: "oceanic-breeze.html" },
+            // Altre barche extra
+            { name: "Silver Wind", price: 1350000, img: "https://source.unsplash.com/random/400x300/?boat,11", len: "20m", power: "2x1100hp", people: 8, year: 2023, pageUrl: "silver-wind.html" },
+            { name: "Ocean Star", price: 1850000, img: "https://source.unsplash.com/random/400x300/?boat,12", len: "24m", power: "2x1400hp", people: 10, year: 2024, pageUrl: "ocean-star.html" },
+            { name: "Blue Wave", price: 970000, img: "https://source.unsplash.com/random/400x300/?boat,13", len: "16m", power: "2x900hp", people: 6, year: 2022, pageUrl: "blue-wave.html" }
+        ];
+
+        const catalogGrid = document.getElementById('catalog-grid');
+
+        function renderCatalog(list) {
+            catalogGrid.innerHTML = '';
+            list.forEach((b, i) => {
+                catalogGrid.innerHTML += `
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer"
+                     onclick="window.location.href='${b.pageUrl}'">
+                    <img src="${b.img}" alt="${b.name}" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-blue-900">${b.name}</h3>
+                        <p class="text-gray-600 mt-1 text-sm">Lunghezza: ${b.len} | Motore: ${b.power}</p>
+                        <p class="text-blue-600 font-bold mt-2 text-base">€${b.price.toLocaleString()}</p>
+                        <button onclick="event.stopPropagation(); toggleDetails(${i})"
+                                class="mt-2 bg-blue-600 text-white py-1 px-3 rounded hover:bg-blue-700 text-sm">
+                                Dettagli
+                        </button>
+                        <div id="details-${i}" class="boat-details mt-2 bg-blue-50 p-2 rounded text-sm">
+                            <ul class="list-disc pl-5 text-gray-700">
+                                <li>Capacità: ${b.people} persone</li>
+                                <li>Anno: ${b.year}</li>
+                            </ul>
+                            <button onclick="event.stopPropagation(); toggleDetails(${i})" class="mt-1 text-blue-600 underline text-sm">Chiudi</button>
+                        </div>
+                    </div>
+                </div>`;
+            });
+        }
+
+        renderCatalog(boats);
+
+        function toggleDetails(i) {
+            const el = document.getElementById(`details-${i}`);
+            el.classList.toggle('active');
+        }
+
+        // Dropdown ordinamento
+        const sortToggle = document.getElementById('sort-toggle');
+        const sortDropdown = document.getElementById('sort-dropdown');
+        const sortText = document.getElementById('sort-text');
+        const sortIcon = sortToggle.querySelector('svg');
+
+        sortToggle.addEventListener('click', () => {
+            const isHidden = sortDropdown.classList.contains('hidden');
+            sortDropdown.classList.toggle('hidden');
+            sortIcon.classList.toggle('rotate-180');
+            if (isHidden) setTimeout(() => sortDropdown.classList.add('show'), 10);
+            else sortDropdown.classList.remove('show');
+        });
+
+        // Gestione opzioni ordinamento
+        document.querySelectorAll('[data-sort]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const value = e.target.dataset.sort;
+                let sorted = [...boats];
+                if (value === 'priceAsc') sorted.sort((a, b) => a.price - b.price);
+                if (value === 'priceDesc') sorted.sort((a, b) => b.price - a.price);
+                renderCatalog(sorted);
+                sortText.textContent = e.target.textContent;
+                sortDropdown.classList.add('hidden');
+                sortDropdown.classList.remove('show');
+                sortIcon.classList.remove('rotate-180');
+            });
+        });
+
+        // Chiudi dropdown cliccando fuori
+        document.addEventListener('click', e => {
+            if (!sortToggle.contains(e.target) && !sortDropdown.contains(e.target)) {
+                sortDropdown.classList.add('hidden');
+                sortDropdown.classList.remove('show');
+                sortIcon.classList.remove('rotate-180');
+            }
+        });
+
+        // Dropdown navbar
+        const dropdownToggle = document.getElementById('dropdown-toggle');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const dropdownIcon = dropdownToggle.querySelector('svg');
+
+        dropdownToggle.addEventListener('click', () => {
+            const isHidden = dropdownMenu.classList.contains('hidden');
+            dropdownMenu.classList.toggle('hidden');
+            dropdownIcon.classList.toggle('rotate-180');
+            if (isHidden) setTimeout(() => dropdownMenu.classList.add('show'), 10);
+            else dropdownMenu.classList.remove('show');
+        });
+
+        document.addEventListener('click', e => {
+            if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+                dropdownMenu.classList.remove('show');
+                dropdownIcon.classList.remove('rotate-180');
+            }
+        });
+    </script>
+
+</body>
+</html>
