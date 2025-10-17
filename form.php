@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $carburante = $_POST['carburante'] ?? '';
     $propulsione = $_POST['propulsione'] ?? '';
     $descrizione = $_POST['descrizione'] ?? '';
+    $anno = $_POST['anno'] ?? ''; // nuovo campo anno
 
     // Percorsi cartelle upload
     $fotoDir = "uploads/foto/";
@@ -38,20 +39,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         move_uploaded_file($_FILES["video"]["tmp_name"], $videoPath);
     }
 
-    // Inserimento nel database
+    // Inserimento nel database (aggiunto campo anno)
     $sql = "INSERT INTO barche 
-        (marca, modello, lunghezza, omologazione, motore, carburante, propulsione, descrizione, foto, video)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        (marca, modello, lunghezza, omologazione, motore, carburante, propulsione, descrizione, foto, video, anno)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
     if ($stmt) {
-        $stmt->bind_param("ssssssssss", 
+        $stmt->bind_param("ssssssssssi", 
             $marca, $modello, $lunghezza, $omologazione, $motore, 
-            $carburante, $propulsione, $descrizione, $fotoPath, $videoPath
+            $carburante, $propulsione, $descrizione, $fotoPath, $videoPath, $anno
         );
 
         if ($stmt->execute()) {
-            // Messaggio di successo con tasto bello e responsive
             echo "
             <style>
                 body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#caf0f8; text-align:center; padding:20px; }

@@ -117,6 +117,9 @@
       <label>Descrizione:</label>
       <textarea name="descrizione"></textarea>
 
+    <label>Anno:</label>
+      <input type="number" name="anno"></input>
+
       <label>Foto:</label>
       <input type="file" name="foto" accept="image/*" required>
 
